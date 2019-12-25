@@ -1,6 +1,13 @@
 const express = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
+
+// Connect Database
+connectDB();
+
+// Init middleware
+app.use(express.json({ msg: "Welcome to the Happiness App" }));
 
 app.get("/", (req, res) => res.json({ msg: "Welcome to the Happiness App" }));
 
