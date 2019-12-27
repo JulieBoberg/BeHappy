@@ -10,42 +10,38 @@ const Navbar = () => {
   return (
     <div>
       <nav>
-        <div class='nav-wrapper'>
-          <a href='#!' class='brand-logo'>
-            Logo
+        <div className='nav-wrapper '>
+          <a href='#!' className='brand-logo center'>
+            <i className='material-icons md-200'>mood</i>
           </a>
-          <a href='#' data-target='mobile-demo' class='sidenav-trigger'>
-            <i class='material-icons'>menu</i>
+          <a href='#!' data-target='mobile-demo' className='sidenav-trigger'>
+            <i className='material-icons'>menu</i>
           </a>
-          <ul class='right hide-on-med-and-down'>
+          <ul className='right hide-on-med-and-down'>
             <li>
-              <a href='sass.html'>Sass</a>
+              <a href='sass.html'>Grattitude</a>
             </li>
             <li>
-              <a href='badges.html'>Components</a>
+              <a href='badges.html'>Affirmations</a>
             </li>
+
             <li>
-              <a href='collapsible.html'>Javascript</a>
-            </li>
-            <li>
-              <a href='mobile.html'>Mobile</a>
+              <a href='mobile.html'>Mood</a>
             </li>
           </ul>
         </div>
       </nav>
 
-      <ul class='sidenav' id='mobile-demo'>
+      <ul className='sidenav' id='mobile-demo'>
         <li>
-          <a href='sass.html'>Sass</a>
+          <a href='sass.html'>Grattitude</a>
         </li>
         <li>
-          <a href='badges.html'>Components</a>
+          <a href='badges.html'>Affirmations</a>
         </li>
+
         <li>
-          <a href='collapsible.html'>Javascript</a>
-        </li>
-        <li>
-          <a href='mobile.html'>Mobile</a>
+          <a href='mobile.html'>Mood</a>
         </li>
       </ul>
     </div>
