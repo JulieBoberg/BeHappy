@@ -10,6 +10,9 @@ const GrattitudeSchema = mongoose.Schema({
     required: true,
     unique: true
   },
+  category: {
+    type: String
+  },
 
   date: {
     type: Date,
