@@ -10,10 +10,7 @@ const GrattitudeSchema = mongoose.Schema({
     required: true,
     unique: true
   },
-  icon: {
-    type: String,
-    required: true
-  },
+
   date: {
     type: Date,
     default: Date.now

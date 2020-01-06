@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav>
         <div className='nav-wrapper '>
           <a href='#!' className='brand-logo center'>
-            <i className='material-icons md-200'>mood</i>
+            <i className='material-icons '>mood</i>
           </a>
           <a href='#!' data-target='mobile-demo' className='sidenav-trigger'>
             <i className='material-icons'>menu</i>

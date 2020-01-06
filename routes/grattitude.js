@@ -45,7 +45,6 @@ router.post(
     try {
       const newGrattitude = new Grattitude({
         grateful,
-        icon,
         date,
         user: req.user.id
       });
