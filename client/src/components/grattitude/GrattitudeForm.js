@@ -13,6 +13,8 @@ const GrattitudeForm = () => {
 
   return (
     <Fragment>
+      <GrattitudeItem />
+
       <div class='row'>
         <form class='col s12'>
           <div class='row'>
@@ -31,11 +33,11 @@ const GrattitudeForm = () => {
                 <option value='' disabled selected>
                   Choose a Category
                 </option>
-                <option value='1'>Love</option>
-                <option value='2'>Family</option>
+                <option value='1'>Family</option>
+                <option value='2'>Friends</option>
                 <option value='3'>Work</option>
                 <option value='4'>Leisure</option>
-                <option value='5'>other</option>
+                <option value='5'>Other</option>
               </select>
               <label>Category</label>
             </div>
@@ -70,8 +72,6 @@ const GrattitudeForm = () => {
       <a class='btn-floating btn-large waves-effect waves-light red'>
         <i class='material-icons'>add</i>
       </a>
-
-      <GrattitudeItem />
     </Fragment>
   );
 };

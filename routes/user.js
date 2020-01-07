@@ -9,7 +9,7 @@ const User = require("../models/Users");
 
 // @route POST api/users
 // @desc Register a user
-//@access public
+// @access public
 
 router.post(
   "/",

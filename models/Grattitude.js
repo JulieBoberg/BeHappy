@@ -7,11 +7,11 @@ const GrattitudeSchema = mongoose.Schema({
   },
   grateful: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   category: {
-    type: String
+    type: String,
+    required: true
   },
 
   date: {
