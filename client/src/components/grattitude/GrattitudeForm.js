@@ -1,9 +1,15 @@
+import React, { Fragment, useContext } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
-import React, { Fragment } from "react";
+import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 import GrattitudeItem from "../grattitude/GrattitudeItem";
 
 const GrattitudeForm = () => {
+  const grattitudeContext = useContext(GrattitudeContext);
+
+  const { grattitude } = grattitudeContext;
+
+  // initialize character count
   document.addEventListener("DOMContentLoaded", function() {
     var elems = document.querySelectorAll(
       "input#input_text, textarea#icon_prefix2"
@@ -13,7 +19,9 @@ const GrattitudeForm = () => {
 
   return (
     <Fragment>
-      <GrattitudeItem />
+      {grattitude.map(grat => (
+        <h3>{grat.grattitude}</h3>
+      ))}
 
       <div class='row'>
         <form class='col s12'>
