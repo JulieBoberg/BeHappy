@@ -6,30 +6,30 @@ import { ADD_GRAT, DELETE_GRAT, SET_CURRENT, CLEAR_CURRENT } from "../types";
 
 const GrattitudeState = props => {
   const initialState = {
-    grattitude: [
+    grattitudes: [
       {
         id: 1,
-        grattitude: "I am grateful for my husband",
+        item: "I am grateful for my husband",
         category: "Family"
       },
       {
         id: 2,
-        grattitude: "I am grateful for my dogs",
+        item: "I am grateful for my dogs",
         category: "Family"
       },
       {
         id: 3,
-        grattitude: "I am grateful for extra writing time",
+        item: "I am grateful for extra writing time",
         category: "Leisure"
       },
       {
         id: 4,
-        grattitude: "I am grateful for my sucessful job hunt",
+        item: "I am grateful for my sucessful job hunt",
         category: "Work"
       },
       {
         id: 5,
-        grattitude: "I am grateful for the beautiful sunshine in California",
+        item: "I am grateful for the beautiful sunshine in California",
         category: "Other"
       }
     ]
@@ -38,13 +38,21 @@ const GrattitudeState = props => {
 
   // Add Grattitude
 
+  const addGrattitude = grattitude => {
+    grattitude.id = uuid.v4();
+    dispatch({
+      type: ADD_GRAT,
+      payload: grattitude
+    });
+  };
+
   // Set current
   // Clear current
   // Delete current
   return (
     <GrattitudeContext.Provider
       value={{
-        grattitude: state.grattitude
+        grattitudes: state.grattitudes
       }}
     >
       {props.children}

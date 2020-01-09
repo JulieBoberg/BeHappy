@@ -1,13 +1,17 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
+import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
-import GrattitudeContext from "../../context/grattitude/grattitudeContext";
-import GrattitudeItem from "../grattitude/GrattitudeItem";
 
 const GrattitudeForm = () => {
   const grattitudeContext = useContext(GrattitudeContext);
 
-  const { grattitude } = grattitudeContext;
+  const [grattitude, setGrattitude] = useState({
+    item: "",
+    category: ""
+  });
+
+  const { item, category } = grattitude;
 
   // initialize character count
   document.addEventListener("DOMContentLoaded", function() {
@@ -17,13 +21,15 @@ const GrattitudeForm = () => {
     var instances = M.CharacterCounter.init(elems);
   });
 
+  const onSubmit = e => {
+    e.preventDefault();
+    grattitudeContext.addGrattitude(grattitude);
+    setGrattitude({ item, category });
+  };
+
   return (
     <Fragment>
-      {grattitude.map(grat => (
-        <h3>{grat.grattitude}</h3>
-      ))}
-
-      <div class='row'>
+      <div class='row' onSubmit={onSubmit}>
         <form class='col s12'>
           <div class='row'>
             <div class='input-field col s12'>
@@ -76,7 +82,6 @@ const GrattitudeForm = () => {
           </div> */}
         </form>
       </div>
-
       <a class='btn-floating btn-large waves-effect waves-light red'>
         <i class='material-icons'>add</i>
       </a>

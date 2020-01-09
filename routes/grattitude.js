@@ -40,11 +40,11 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { grateful, category, date } = req.body;
+    const { item, category, date } = req.body;
 
     try {
       const newGrattitude = new Grattitude({
-        grateful,
+        item,
         category,
         date,
         user: req.user.id
