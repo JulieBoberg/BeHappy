@@ -52,7 +52,8 @@ const GrattitudeState = props => {
   return (
     <GrattitudeContext.Provider
       value={{
-        grattitudes: state.grattitudes
+        grattitudes: state.grattitudes,
+        addGrattitude
       }}
     >
       {props.children}

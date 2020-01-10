@@ -5,7 +5,7 @@ export default (state, action) => {
     case ADD_GRAT:
       return {
         ...state,
-        grattitude: [...state]
+        grattitudes: [...state.grattitudes, action.payload]
       };
     default:
       return state;
