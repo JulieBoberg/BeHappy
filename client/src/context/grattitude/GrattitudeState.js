@@ -46,6 +46,14 @@ const GrattitudeState = props => {
     });
   };
 
+  //Delete
+  const deleteGrattitude = id => {
+    dispatch({
+      type: DELETE_GRAT,
+      payload: id
+    });
+  };
+
   // Set current
   // Clear current
   // Delete current
@@ -53,7 +61,8 @@ const GrattitudeState = props => {
     <GrattitudeContext.Provider
       value={{
         grattitudes: state.grattitudes,
-        addGrattitude
+        addGrattitude,
+        deleteGrattitude
       }}
     >
       {props.children}

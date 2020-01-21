@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 import "materialize-css/dist/css/materialize.min.css";
 
 // import Moment from 'react-moment';
@@ -6,9 +7,14 @@ import PropTypes from "prop-types";
 //import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 
 const GrattitudeItem = ({ grattitude }) => {
-  //const grattitudeContext = useContext(GrattitudeContext);
+  const grattitudeContext = useContext(GrattitudeContext);
+  const { deleteGrattitude } = grattitudeContext;
 
   const { id, item, category, date } = grattitude;
+
+  const onDelete = () => {
+    deleteGrattitude(id);
+  };
 
   return (
     <Fragment>
@@ -28,7 +34,7 @@ const GrattitudeItem = ({ grattitude }) => {
           </a>
         </span>
         <span>
-          <a class='waves-effect waves-red btn-flat'>
+          <a class='waves-effect waves-red btn-flat' onClick={onDelete}>
             <i class='material-icons'>delete_outline</i>
           </a>
         </span>
