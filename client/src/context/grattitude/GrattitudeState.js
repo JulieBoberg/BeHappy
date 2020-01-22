@@ -2,7 +2,13 @@ import React, { useReducer } from "react";
 import uuid from "uuid";
 import GrattitudeContext from "./grattitudeContext";
 import grattitudeReducer from "./grattitudeReducer";
-import { ADD_GRAT, DELETE_GRAT, SET_CURRENT, CLEAR_CURRENT } from "../types";
+import {
+  ADD_GRAT,
+  DELETE_GRAT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_GRATTITUDE
+} from "../types";
 
 const GrattitudeState = props => {
   const initialState = {
@@ -32,7 +38,8 @@ const GrattitudeState = props => {
         item: "I am grateful for the beautiful sunshine in California",
         category: "Other"
       }
-    ]
+    ],
+    current: null
   };
   const [state, dispatch] = useReducer(grattitudeReducer, initialState);
 
@@ -46,7 +53,7 @@ const GrattitudeState = props => {
     });
   };
 
-  //Delete
+  // Delete Grattitude
   const deleteGrattitude = id => {
     dispatch({
       type: DELETE_GRAT,
@@ -54,15 +61,39 @@ const GrattitudeState = props => {
     });
   };
 
-  // Set current
-  // Clear current
-  // Delete current
+  // Set Current
+  const setCurrent = grattitude => {
+    dispatch({
+      type: SET_CURRENT,
+      payload: grattitude
+    });
+  };
+
+  // Clear Current
+  const clearCurrent = () => {
+    dispatch({
+      type: CLEAR_CURRENT
+    });
+  };
+
+  // Update Grattitude
+  const updateGrattitude = grattitude => {
+    dispatch({
+      type: UPDATE_GRATTITUDE,
+      payload: grattitude
+    });
+  };
+
   return (
     <GrattitudeContext.Provider
       value={{
         grattitudes: state.grattitudes,
+        current: state.current,
+        setCurrent,
+        clearCurrent,
         addGrattitude,
-        deleteGrattitude
+        deleteGrattitude,
+        updateGrattitude
       }}
     >
       {props.children}

@@ -1,4 +1,11 @@
-import { ADD_GRAT, DELETE_GRAT, SET_CURRENT, CLEAR_CURRENT } from "../types";
+import {
+  ADD_GRAT,
+  DELETE_GRAT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  SET_ALERT,
+  UPDATE_GRATTITUDE
+} from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -13,6 +20,26 @@ export default (state, action) => {
         ...state,
         grattitudes: state.grattitudes.filter(
           grattitude => grattitude.id !== action.payload
+        )
+      };
+
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      };
+
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
+      };
+
+    case UPDATE_GRATTITUDE:
+      return {
+        ...state,
+        grattitudes: state.grattitudes.map(grattitude =>
+          grattitude.id === action.payload.id ? action.payload : grattitude
         )
       };
     default:

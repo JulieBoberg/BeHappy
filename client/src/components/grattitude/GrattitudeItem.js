@@ -8,12 +8,13 @@ import PropTypes from "prop-types";
 
 const GrattitudeItem = ({ grattitude }) => {
   const grattitudeContext = useContext(GrattitudeContext);
-  const { deleteGrattitude } = grattitudeContext;
+  const { deleteGrattitude, setCurrent, clearCurrent } = grattitudeContext;
 
   const { id, item, category, date } = grattitude;
 
   const onDelete = () => {
     deleteGrattitude(id);
+    clearCurrent();
   };
 
   return (
@@ -29,7 +30,10 @@ const GrattitudeItem = ({ grattitude }) => {
         </span>
 
         <span>
-          <a class='waves-effect waves-yellow lighten-3 btn-flat'>
+          <a
+            class='waves-effect waves-yellow lighten-3 btn-flat'
+            onClick={() => setCurrent(grattitude)}
+          >
             <i class='material-icons'>create</i>
           </a>
         </span>

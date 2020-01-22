@@ -1,10 +1,28 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const GrattitudeForm = () => {
   const grattitudeContext = useContext(GrattitudeContext);
+
+  const {
+    addGrattitude,
+    updateGrattitude,
+    clearCurrent,
+    current
+  } = grattitudeContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setGrattitude(current);
+    } else {
+      setGrattitude({
+        item: "",
+        category: "Choose a category"
+      });
+    }
+  }, [grattitudeContext, current]);
 
   const [grattitude, setGrattitude] = useState({
     item: "",
@@ -26,20 +44,26 @@ const GrattitudeForm = () => {
     setGrattitude({ ...grattitude, [e.target.name]: e.target.value });
 
   // Onsubmit
-  //SOmething is wrong on the onSubmit End.
-
   const onSubmit = e => {
     e.preventDefault();
-    //Starting on addGrattitude
-    grattitudeContext.addGrattitude(grattitude);
-    setGrattitude({
-      item: "",
-      category: "Choose a category"
-    });
+    if (current === null) {
+      addGrattitude(grattitude);
+    } else {
+      updateGrattitude(grattitude);
+    }
+    clearAll(grattitude);
+  };
+
+  const clearAll = () => {
+    clearCurrent();
   };
 
   return (
     <Fragment>
+      <h1 style={{ fontSize: "35px", textAlign: "center" }}>
+        {" "}
+        {current ? "Edit" : "What Are You Grateful For?"}
+      </h1>
       <div class='row container' style={{ overflow: "visible" }}>
         <form class='col s12' onSubmit={onSubmit}>
           <div class='row'>
@@ -85,6 +109,16 @@ const GrattitudeForm = () => {
             >
               <i class='material-icons right'>add</i>
             </button>
+            {current && (
+              <div>
+                <button
+                  class='btn-floating btn-medium waves-effect waves-light green'
+                  onClick={clearAll}
+                >
+                  Clear
+                </button>
+              </div>
+            )}
           </div>
         </form>
       </div>
