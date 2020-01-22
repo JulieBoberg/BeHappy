@@ -3,7 +3,6 @@ import {
   DELETE_GRAT,
   SET_CURRENT,
   CLEAR_CURRENT,
-  SET_ALERT,
   UPDATE_GRATTITUDE
 } from "../types";
 
