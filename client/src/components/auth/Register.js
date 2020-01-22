@@ -1,15 +1,26 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 
 import "materialize-css/dist/css/materialize.min.css";
 
-const Register = () => {
+const Register = props => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
-  const { register } = authContext;
+  const { register, error, clearErrors, isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+    if (error === "User already exists") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
     name: "",
@@ -38,11 +49,11 @@ const Register = () => {
   };
 
   return (
-    <form class='col s10' onSubmit={onSubmit}>
+    <form className='col s10' onSubmit={onSubmit}>
       <div className='container'>
         <h1 style={{ fontSize: "35px", textAlign: "center" }}>Register</h1>
         {/* name */}
-        <div class='input-field col s6'>
+        <div className='input-field col s6'>
           <input
             placeholder='Placeholder'
             id='name'
@@ -54,8 +65,8 @@ const Register = () => {
           <label htmlFor='name'>Name</label>
         </div>
         {/* email */}
-        <div class='row'>
-          <div class='input-field col s12'>
+        <div className='row'>
+          <div className='input-field col s12'>
             <input
               id='email'
               type='email'
@@ -67,8 +78,8 @@ const Register = () => {
           </div>
         </div>
         {/* password */}
-        <div class='row'>
-          <div class='input-field col s12'>
+        <div className='row'>
+          <div className='input-field col s12'>
             <input
               id='password'
               type='password'
@@ -81,8 +92,8 @@ const Register = () => {
           </div>
         </div>
         {/* password2 */}
-        <div class='row'>
-          <div class='input-field col s12'>
+        <div className='row'>
+          <div className='input-field col s12'>
             <input
               id='password2'
               type='password'

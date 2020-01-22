@@ -16,7 +16,7 @@ const Navbar = ({ title, icon }) => {
         <div className='nav-wrapper '>
           <a href='#!' className='brand-logo center'>
             {title}
-            <i class='material-icons right'>{icon}</i>
+            <i className='material-icons right'>{icon}</i>
           </a>
           <a href='#!' data-target='mobile-demo' className='sidenav-trigger'>
             <i className='material-icons'>menu</i>

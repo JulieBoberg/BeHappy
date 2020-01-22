@@ -12,7 +12,12 @@ import Affirmations from "../src/components/pages/Affirmations";
 import AlertState from "../src/context/alert/AlertState";
 import AuthState from "../src/context/auth/AuthState";
 import GrattitudeState from "../src/context/grattitude/GrattitudeState";
+import setAuthToken from "../src/utils/setAuthToken";
 import "./App.css";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   // init materalize js
