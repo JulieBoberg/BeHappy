@@ -1,56 +1,65 @@
 import React, { useReducer } from "react";
-import uuid from "uuid";
+
+import axios from "axios";
 import GrattitudeContext from "./grattitudeContext";
 import grattitudeReducer from "./grattitudeReducer";
 import {
   ADD_GRAT,
   DELETE_GRAT,
+  GET_GRATTITUDE,
+  CLEAR_GRATTITUDE,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_GRATTITUDE
+  UPDATE_GRATTITUDE,
+  GRAT_ERROR
 } from "../types";
+import { stat } from "fs";
 
 const GrattitudeState = props => {
   const initialState = {
-    grattitudes: [
-      {
-        id: 1,
-        item: "I am grateful for my husband",
-        category: "Family"
-      },
-      {
-        id: 2,
-        item: "I am grateful for my dogs",
-        category: "Family"
-      },
-      {
-        id: 3,
-        item: "I am grateful for extra writing time",
-        category: "Leisure"
-      },
-      {
-        id: 4,
-        item: "I am grateful for my sucessful job hunt",
-        category: "Work"
-      },
-      {
-        id: 5,
-        item: "I am grateful for the beautiful sunshine in California",
-        category: "Other"
-      }
-    ],
-    current: null
+    grattitudes: [],
+    current: null,
+    error: null
   };
   const [state, dispatch] = useReducer(grattitudeReducer, initialState);
 
+  // Get Grattitude
+
+  const getGrattitude = async () => {
+    const res = await axios.get("/api/grattitude");
+    try {
+      dispatch({
+        type: GET_GRATTITUDE,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: GRAT_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
+
   // Add Grattitude
 
-  const addGrattitude = grattitude => {
-    grattitude.id = uuid.v4();
-    dispatch({
-      type: ADD_GRAT,
-      payload: grattitude
-    });
+  const addGrattitude = async grattitude => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.post("/api/grattitude", grattitude, config);
+      dispatch({
+        type: ADD_GRAT,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: GRAT_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
 
   // Delete Grattitude
@@ -89,11 +98,13 @@ const GrattitudeState = props => {
       value={{
         grattitudes: state.grattitudes,
         current: state.current,
+        error: state.error,
         setCurrent,
         clearCurrent,
         addGrattitude,
         deleteGrattitude,
-        updateGrattitude
+        updateGrattitude,
+        getGrattitude
       }}
     >
       {props.children}

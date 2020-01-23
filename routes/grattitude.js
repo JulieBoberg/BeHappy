@@ -30,7 +30,7 @@ router.post(
   [
     auth,
     [
-      check("grateful", "Write something to be grateful for!")
+      check("item", "Write something to be grateful for!")
         .not()
         .isEmpty()
     ]

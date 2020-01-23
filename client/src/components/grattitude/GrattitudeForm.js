@@ -19,7 +19,7 @@ const GrattitudeForm = () => {
     } else {
       setGrattitude({
         item: "",
-        category: "Choose a category"
+        category: ""
       });
     }
   }, [grattitudeContext, current]);
@@ -64,32 +64,32 @@ const GrattitudeForm = () => {
         {" "}
         {current ? "Edit" : "What Are You Grateful For?"}
       </h1>
-      <div class='row container' style={{ overflow: "visible" }}>
-        <form class='col s12' onSubmit={onSubmit}>
-          <div class='row'>
-            <div class='input-field col s12'>
-              <i class='material-icons prefix'>favorite_border</i>
+      <div className='row container' style={{ overflow: "visible" }}>
+        <form className='col s12' onSubmit={onSubmit}>
+          <div className='row'>
+            <div className='input-field col s12'>
+              <i className='material-icons prefix'>favorite_border</i>
               <input
                 type='text'
                 name='item'
                 value={item}
                 onChange={onChange}
                 id='icon_prefix2'
-                class='materialize-textarea'
+                className='materialize-textarea'
                 data-length='120'
               ></input>
-              <label for='icon_prefix2'>I am grateful for...</label>
+              <label htmlFor='icon_prefix2'>I am grateful for...</label>
             </div>
 
-            <div class='input-field col s12 m8 l4'>
-              <i class='material-icons prefix'>label</i>
+            <div className='input-field col s12 m8 l4'>
+              <i className='material-icons prefix'>label</i>
               <select
                 type='text'
                 name='category'
                 value={category}
                 onChange={onChange}
               >
-                <option value='' disabled selected>
+                <option value='' defaultValue>
                   Choose a Category
                 </option>
                 <option value='Family'>Family</option>
@@ -101,18 +101,18 @@ const GrattitudeForm = () => {
               <label>Category</label>
             </div>
           </div>
-          <div class='row'>
+          <div className='row'>
             <button
-              class='btn-floating btn-large waves-effect waves-light red'
+              className='btn-floating btn-large waves-effect waves-light red'
               type='submit'
               value='Add Grattitude'
             >
-              <i class='material-icons right'>add</i>
+              <i className='material-icons right'>add</i>
             </button>
             {current && (
               <div>
                 <button
-                  class='btn-floating btn-medium waves-effect waves-light green'
+                  className='btn-floating btn-medium waves-effect waves-light green'
                   onClick={clearAll}
                 >
                   Clear

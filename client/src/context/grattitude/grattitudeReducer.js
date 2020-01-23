@@ -1,9 +1,12 @@
 import {
   ADD_GRAT,
   DELETE_GRAT,
+  GET_GRATTITUDE,
+  CLEAR_GRATTITUDE,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_GRATTITUDE
+  UPDATE_GRATTITUDE,
+  GRAT_ERROR
 } from "../types";
 
 export default (state, action) => {
@@ -21,7 +24,11 @@ export default (state, action) => {
           grattitude => grattitude.id !== action.payload
         )
       };
-
+    case GET_GRATTITUDE:
+      return {
+        ...state,
+        grattitudes: action.payload
+      };
     case SET_CURRENT:
       return {
         ...state,
@@ -40,6 +47,11 @@ export default (state, action) => {
         grattitudes: state.grattitudes.map(grattitude =>
           grattitude.id === action.payload.id ? action.payload : grattitude
         )
+      };
+    case GRAT_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
