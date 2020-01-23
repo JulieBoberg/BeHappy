@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
-
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 
@@ -46,13 +45,13 @@ const Login = props => {
   };
 
   return (
-    <form class='col s10' onSubmit={onSubmit}>
+    <form className='col s10' onSubmit={onSubmit}>
       <div className='container'>
         <h1 style={{ fontSize: "35px", textAlign: "center" }}>Login</h1>
 
         {/* email */}
-        <div class='row'>
-          <div class='input-field col s12'>
+        <div className='row'>
+          <div className='input-field col s12'>
             <input
               id='email'
               type='email'
@@ -64,8 +63,8 @@ const Login = props => {
           </div>
         </div>
         {/* password */}
-        <div class='row'>
-          <div class='input-field col s12'>
+        <div className='row'>
+          <div className='input-field col s12'>
             <input
               id='password'
               type='password'

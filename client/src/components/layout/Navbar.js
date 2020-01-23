@@ -1,9 +1,10 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
+import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 
 import PropTypes from "prop-types";
 
@@ -14,11 +15,19 @@ const Navbar = ({ title, icon }) => {
   });
 
   const authContext = useContext(AuthContext);
+  const grattitudeContext = useContext(GrattitudeContext);
 
-  const { isAuthenticated, logout, user } = authContext;
+  const { isAuthenticated, logout, user, loadUser } = authContext;
+  const { clearGrattitude } = grattitudeContext;
+
+  useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line
+  }, []);
 
   const onLogout = () => {
     logout();
+    clearGrattitude();
   };
 
   const authLinks = (
@@ -74,22 +83,7 @@ const Navbar = ({ title, icon }) => {
       </nav>
 
       <ul className='sidenav' id='mobile-demo'>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/Grattitude'>Grattitude</Link>
-        </li>
-
-        <li>
-          <Link to='/Affirmations'>Affirmations</Link>
-        </li>
-        <li>
-          <Link to='/Register'>Register</Link>
-        </li>
-        <li>
-          <Link to='/Login'>Login</Link>
-        </li>
+        {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </div>
   );

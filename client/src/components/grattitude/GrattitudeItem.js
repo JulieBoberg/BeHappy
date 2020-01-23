@@ -10,10 +10,10 @@ const GrattitudeItem = ({ grattitude }) => {
   const grattitudeContext = useContext(GrattitudeContext);
   const { deleteGrattitude, setCurrent, clearCurrent } = grattitudeContext;
 
-  const { id, item, category, date } = grattitude;
+  const { _id, item, category, date } = grattitude;
 
   const onDelete = () => {
-    deleteGrattitude(id);
+    deleteGrattitude(_id);
     clearCurrent();
   };
 
@@ -21,7 +21,7 @@ const GrattitudeItem = ({ grattitude }) => {
     <Fragment>
       {/* This is the list of grattitude items that will cycle through with maps in grattitude form */}
 
-      <li class='collection-item'>
+      <li className='collection-item'>
         <div className='row'>
           <p style={{ fontSize: "24px" }}>{item}</p>
         </div>
@@ -31,15 +31,15 @@ const GrattitudeItem = ({ grattitude }) => {
 
         <span>
           <a
-            class='waves-effect waves-yellow lighten-3 btn-flat'
+            className='waves-effect waves-yellow lighten-3 btn-flat'
             onClick={() => setCurrent(grattitude)}
           >
-            <i class='material-icons'>create</i>
+            <i className='material-icons'>create</i>
           </a>
         </span>
         <span>
-          <a class='waves-effect waves-red btn-flat' onClick={onDelete}>
-            <i class='material-icons'>delete_outline</i>
+          <a className='waves-effect waves-red btn-flat' onClick={onDelete}>
+            <i className='material-icons'>delete_outline</i>
           </a>
         </span>
 

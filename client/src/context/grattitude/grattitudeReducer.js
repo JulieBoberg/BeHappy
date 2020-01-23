@@ -14,14 +14,14 @@ export default (state, action) => {
     case ADD_GRAT:
       return {
         ...state,
-        grattitudes: [...state.grattitudes, action.payload]
+        grattitudes: [action.payload, ...state.grattitudes]
       };
 
     case DELETE_GRAT:
       return {
         ...state,
         grattitudes: state.grattitudes.filter(
-          grattitude => grattitude.id !== action.payload
+          grattitude => grattitude._id !== action.payload
         )
       };
     case GET_GRATTITUDE:
@@ -45,13 +45,20 @@ export default (state, action) => {
       return {
         ...state,
         grattitudes: state.grattitudes.map(grattitude =>
-          grattitude.id === action.payload.id ? action.payload : grattitude
+          grattitude._id === action.payload._id ? action.payload : grattitude
         )
       };
     case GRAT_ERROR:
       return {
         ...state,
         error: action.payload
+      };
+    case CLEAR_GRATTITUDE:
+      return {
+        ...state,
+        grattitudes: [],
+        error: null,
+        current: null
       };
     default:
       return state;

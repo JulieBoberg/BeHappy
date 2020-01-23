@@ -13,7 +13,6 @@ import {
   UPDATE_GRATTITUDE,
   GRAT_ERROR
 } from "../types";
-import { stat } from "fs";
 
 const GrattitudeState = props => {
   const initialState = {
@@ -63,11 +62,19 @@ const GrattitudeState = props => {
   };
 
   // Delete Grattitude
-  const deleteGrattitude = id => {
-    dispatch({
-      type: DELETE_GRAT,
-      payload: id
-    });
+  const deleteGrattitude = async id => {
+    try {
+      await axios.delete(`/api/grattitude/${id}`);
+      dispatch({
+        type: DELETE_GRAT,
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: GRAT_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
 
   // Set Current
@@ -86,10 +93,35 @@ const GrattitudeState = props => {
   };
 
   // Update Grattitude
-  const updateGrattitude = grattitude => {
+  const updateGrattitude = async grattitude => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.put(
+        `/api/grattitude/${grattitude._id}`,
+        grattitude,
+        config
+      );
+      dispatch({
+        type: UPDATE_GRATTITUDE,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: GRAT_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
+
+  // Clear Grattitude
+
+  const clearGrattitude = () => {
     dispatch({
-      type: UPDATE_GRATTITUDE,
-      payload: grattitude
+      type: CLEAR_GRATTITUDE
     });
   };
 
@@ -104,7 +136,8 @@ const GrattitudeState = props => {
         addGrattitude,
         deleteGrattitude,
         updateGrattitude,
-        getGrattitude
+        getGrattitude,
+        clearGrattitude
       }}
     >
       {props.children}

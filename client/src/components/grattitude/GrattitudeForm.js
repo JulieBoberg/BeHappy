@@ -67,6 +67,7 @@ const GrattitudeForm = () => {
       <div className='row container' style={{ overflow: "visible" }}>
         <form className='col s12' onSubmit={onSubmit}>
           <div className='row'>
+            {/* Name input field */}
             <div className='input-field col s12'>
               <i className='material-icons prefix'>favorite_border</i>
               <input
@@ -81,6 +82,7 @@ const GrattitudeForm = () => {
               <label htmlFor='icon_prefix2'>I am grateful for...</label>
             </div>
 
+            {/* Drop down menu */}
             <div className='input-field col s12 m8 l4'>
               <i className='material-icons prefix'>label</i>
               <select
@@ -89,18 +91,18 @@ const GrattitudeForm = () => {
                 value={category}
                 onChange={onChange}
               >
-                <option value='' defaultValue>
-                  Choose a Category
-                </option>
+                <option value=''>Choose a Category</option>
                 <option value='Family'>Family</option>
                 <option value='Friends'>Friends</option>
                 <option value='Work'>Work</option>
                 <option value='Leisure'>Leisure</option>
                 <option value='Other'>Other</option>
               </select>
+
               <label>Category</label>
             </div>
           </div>
+
           <div className='row'>
             <button
               className='btn-floating btn-large waves-effect waves-light red'
