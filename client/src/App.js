@@ -9,6 +9,7 @@ import Login from "../src/components/auth/Login";
 import Alerts from "./components/layout/Alerts";
 import Grattitude from "../src/components/pages/Grattitude";
 import Affirmations from "../src/components/pages/Affirmations";
+import PrivateRoute from "../src/components/routing/PrivateRoute";
 import AlertState from "../src/context/alert/AlertState";
 import AuthState from "../src/context/auth/AuthState";
 import GrattitudeState from "../src/context/grattitude/GrattitudeState";
@@ -34,9 +35,13 @@ const App = () => {
               <Navbar />
               <Alerts />
               <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/affirmations' component={Affirmations} />
-                <Route exact path='/grattitude' component={Grattitude} />
+                <PrivateRoute exact path='/' component={Home} />
+                <PrivateRoute
+                  exact
+                  path='/affirmations'
+                  component={Affirmations}
+                />
+                <PrivateRoute exact path='/grattitude' component={Grattitude} />
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
               </Switch>
