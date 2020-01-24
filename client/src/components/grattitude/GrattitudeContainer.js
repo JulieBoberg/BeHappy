@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 // import Moment from 'react-moment';
 import GrattitudeContext from "../../context/grattitude/grattitudeContext";
+
 import GrattitudeItem from "./GrattitudeItem";
 
 const GrattitudeContainer = () => {
@@ -10,6 +11,7 @@ const GrattitudeContainer = () => {
 
   useEffect(() => {
     getGrattitude();
+
     // eslint-disable-next-line
   }, []);
 

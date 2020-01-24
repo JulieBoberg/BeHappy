@@ -4,3 +4,11 @@
   overflow: hidden;
   padding: 0 2rem;
 }
+
+.moodButton {
+  margin: 1% 3%;
+}
+
+.moodIcons {
+  font-size: 48px !important;
+}

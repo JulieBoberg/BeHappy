@@ -95,7 +95,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: "Mood",
+  title: "Mood Lift",
   icon: "mood"
 };
 
