@@ -1,35 +1,35 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
-import GrattitudeContext from "../../context/grattitude/grattitudeContext";
+import GratitudeContext from "../../context/gratitude/gratitudeContext";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const GrattitudeForm = () => {
-  const grattitudeContext = useContext(GrattitudeContext);
+const GratitudeForm = () => {
+  const gratitudeContext = useContext(GratitudeContext);
 
   const {
-    addGrattitude,
-    updateGrattitude,
+    addGratitude,
+    updateGratitude,
     clearCurrent,
     current
-  } = grattitudeContext;
+  } = gratitudeContext;
 
   useEffect(() => {
     if (current !== null) {
-      setGrattitude(current);
+      setGratitude(current);
     } else {
-      setGrattitude({
+      setGratitude({
         item: "",
         category: ""
       });
     }
-  }, [grattitudeContext, current]);
+  }, [gratitudeContext, current]);
 
-  const [grattitude, setGrattitude] = useState({
+  const [gratitude, setGratitude] = useState({
     item: "",
     category: ""
   });
 
-  const { item, category } = grattitude;
+  const { item, category } = gratitude;
 
   // initialize character count
   document.addEventListener("DOMContentLoaded", function() {
@@ -41,17 +41,17 @@ const GrattitudeForm = () => {
 
   // OnChange works and changes state
   const onChange = e =>
-    setGrattitude({ ...grattitude, [e.target.name]: e.target.value });
+    setGratitude({ ...gratitude, [e.target.name]: e.target.value });
 
   // Onsubmit
   const onSubmit = e => {
     e.preventDefault();
     if (current === null) {
-      addGrattitude(grattitude);
+      addGratitude(gratitude);
     } else {
-      updateGrattitude(grattitude);
+      updateGratitude(gratitude);
     }
-    clearAll(grattitude);
+    clearAll(gratitude);
   };
 
   const clearAll = () => {
@@ -107,7 +107,7 @@ const GrattitudeForm = () => {
             <button
               className='btn-floating btn-large waves-effect waves-light red'
               type='submit'
-              value='Add Grattitude'
+              value='Add Gratitude'
             >
               <i className='material-icons right'>add</i>
             </button>
@@ -128,4 +128,4 @@ const GrattitudeForm = () => {
   );
 };
 
-export default GrattitudeForm;
+export default GratitudeForm;

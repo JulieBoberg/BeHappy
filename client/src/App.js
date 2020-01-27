@@ -7,12 +7,13 @@ import Home from "../src/components/pages/Home";
 import Register from "../src/components/auth/Register";
 import Login from "../src/components/auth/Login";
 import Alerts from "./components/layout/Alerts";
-import Grattitude from "../src/components/pages/Grattitude";
+import Gratitude from "../src/components/pages/Gratitude";
 import Affirmations from "../src/components/pages/Affirmations";
 import PrivateRoute from "../src/components/routing/PrivateRoute";
 import AlertState from "../src/context/alert/AlertState";
 import AuthState from "../src/context/auth/AuthState";
-import GrattitudeState from "../src/context/grattitude/GrattitudeState";
+import GratitudeState from "../src/context/gratitude/GratitudeState";
+import AffirmationsState from "../src/context/affirmations/AffirmationsState";
 import setAuthToken from "../src/utils/setAuthToken";
 import "./App.css";
 
@@ -28,27 +29,29 @@ const App = () => {
 
   return (
     <AuthState>
-      <GrattitudeState>
-        <AlertState>
-          <Router>
-            <Fragment>
-              <Navbar />
-              <Alerts />
-              <Switch>
-                <PrivateRoute exact path='/' component={Home} />
-                <PrivateRoute
-                  exact
-                  path='/affirmations'
-                  component={Affirmations}
-                />
-                <PrivateRoute exact path='/grattitude' component={Grattitude} />
-                <Route exact path='/register' component={Register} />
-                <Route exact path='/login' component={Login} />
-              </Switch>
-            </Fragment>
-          </Router>
-        </AlertState>
-      </GrattitudeState>
+      <GratitudeState>
+        <AffirmationsState>
+          <AlertState>
+            <Router>
+              <Fragment>
+                <Navbar />
+                <Alerts />
+                <Switch>
+                  <PrivateRoute exact path='/' component={Home} />
+                  <PrivateRoute
+                    exact
+                    path='/affirmations'
+                    component={Affirmations}
+                  />
+                  <PrivateRoute exact path='/gratitude' component={Gratitude} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                </Switch>
+              </Fragment>
+            </Router>
+          </AlertState>
+        </AffirmationsState>
+      </GratitudeState>
     </AuthState>
   );
 };

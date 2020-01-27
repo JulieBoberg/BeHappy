@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const GrattitudeSchema = mongoose.Schema({
+const GratitudeSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users"
@@ -19,4 +19,4 @@ const GrattitudeSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("grattitude", GrattitudeSchema);
+module.exports = mongoose.model("gratitude", GratitudeSchema);

@@ -12,30 +12,38 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='container' style={{ textAlign: "center" }}>
-      <h1>Hello {user && user.name}!</h1>
-      <h2>How do you feel right now?</h2>
-      <div className='row'>
-        <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
-          <i className='material-icons moodIcons' style={{ fontSize: "48px" }}>
-            sentiment_very_satisfied
-          </i>
-        </a>
-        <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
-          <i className=' moodIcons material-icons'>sentiment_satisfied_alt</i>
-        </a>
+    <div
+      className='container'
+      style={{ textAlign: "center", paddingLeft: "25%" }}
+    >
+      <div style={{ display: "inline-block" }}>
+        <h1>Hello {user && user.name}!</h1>
+        <h2>How do you feel right now?</h2>
+        <div className='row'>
+          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+            <i
+              className='material-icons moodIcons'
+              style={{ fontSize: "48px" }}
+            >
+              sentiment_very_satisfied
+            </i>
+          </a>
+          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+            <i className=' moodIcons material-icons'>sentiment_satisfied_alt</i>
+          </a>
 
-        <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
-          <i className='material-icons moodIcons'>sentiment_satisfied</i>
-        </a>
-        <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
-          <i className='material-icons moodIcons'>sentiment_dissatisfied</i>
-        </a>
-        <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
-          <i className='material-icons moodIcons'>
-            sentiment_very_dissatisfied
-          </i>
-        </a>
+          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+            <i className='material-icons moodIcons'>sentiment_satisfied</i>
+          </a>
+          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+            <i className='material-icons moodIcons'>sentiment_dissatisfied</i>
+          </a>
+          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+            <i className='material-icons moodIcons'>
+              sentiment_very_dissatisfied
+            </i>
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import "materialize-css/dist/css/materialize.min.css";
 
 export const affirmationForm = () => {
+  // The simple form that the affirmations can be entered into
   return (
     <div className='row container' style={{ overflow: "visible" }}>
       <form

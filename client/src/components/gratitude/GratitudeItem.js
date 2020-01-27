@@ -1,25 +1,23 @@
 import React, { Fragment, useContext } from "react";
-import GrattitudeContext from "../../context/grattitude/grattitudeContext";
+import GratitudeContext from "../../context/gratitude/gratitudeContext";
 import "materialize-css/dist/css/materialize.min.css";
-
 // import Moment from 'react-moment';
 import PropTypes from "prop-types";
-//import GrattitudeContext from "../../context/grattitude/grattitudeContext";
 
-const GrattitudeItem = ({ grattitude }) => {
-  const grattitudeContext = useContext(GrattitudeContext);
-  const { deleteGrattitude, setCurrent, clearCurrent } = grattitudeContext;
+const GratitudeItem = ({ gratitude }) => {
+  const gratitudeContext = useContext(GratitudeContext);
+  const { deleteGratitude, setCurrent, clearCurrent } = gratitudeContext;
 
-  const { _id, item, category, date } = grattitude;
+  const { _id, item, category, date } = gratitude;
 
   const onDelete = () => {
-    deleteGrattitude(_id);
+    deleteGratitude(_id);
     clearCurrent();
   };
 
   return (
     <Fragment>
-      {/* This is the list of grattitude items that will cycle through with maps in grattitude form */}
+      {/* This is the list of gratitude items that will cycle through with maps in gratitude form */}
 
       <li className='collection-item'>
         <div className='row'>
@@ -32,7 +30,7 @@ const GrattitudeItem = ({ grattitude }) => {
         <span>
           <a
             className='waves-effect waves-yellow lighten-3 btn-flat'
-            onClick={() => setCurrent(grattitude)}
+            onClick={() => setCurrent(gratitude)}
           >
             <i className='material-icons'>create</i>
           </a>
@@ -49,8 +47,8 @@ const GrattitudeItem = ({ grattitude }) => {
   );
 };
 
-GrattitudeItem.propTypes = {
-  grattitude: PropTypes.object.isRequired
+GratitudeItem.propTypes = {
+  gratitude: PropTypes.object.isRequired
 };
 
-export default GrattitudeItem;
+export default GratitudeItem;

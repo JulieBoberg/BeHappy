@@ -4,7 +4,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
-import GrattitudeContext from "../../context/grattitude/grattitudeContext";
+import GratitudeContext from "../../context/gratitude/gratitudeContext";
 
 import PropTypes from "prop-types";
 
@@ -15,10 +15,10 @@ const Navbar = ({ title, icon }) => {
   });
 
   const authContext = useContext(AuthContext);
-  const grattitudeContext = useContext(GrattitudeContext);
+  const gratitudeContext = useContext(GratitudeContext);
 
   const { isAuthenticated, logout, user, loadUser } = authContext;
-  const { clearGrattitude } = grattitudeContext;
+  const { clearGratitude } = gratitudeContext;
 
   useEffect(() => {
     loadUser();
@@ -27,7 +27,7 @@ const Navbar = ({ title, icon }) => {
 
   const onLogout = () => {
     logout();
-    clearGrattitude();
+    clearGratitude();
   };
 
   const authLinks = (
@@ -37,7 +37,7 @@ const Navbar = ({ title, icon }) => {
         <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to='/Grattitude'>Grattitude</Link>
+        <Link to='/Gratitude'>Gratitude</Link>
       </li>
 
       <li>
