@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import AffirmationsContext from "../../context/affirmations/affirmationsContext";
-import AffirmationList from "./affirmationList";
+import AffirmationList from "./AffirmationList";
 
-const affirmationContainer = () => {
+const AffirmationContainer = () => {
   const affirmationsContext = useContext(AffirmationsContext);
 
   const { affirmations } = affirmationsContext;
@@ -18,4 +18,4 @@ const affirmationContainer = () => {
   );
 };
 
-export default affirmationContainer;
+export default AffirmationContainer;

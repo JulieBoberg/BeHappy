@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import AffirmationForm from "../affirmations/affirmationForm";
-// import AffirmationItem from "../affirmations/affirmationItem";
-// import AffirmationContainer from "../affirmations/affirmationContainer";
+import AffirmationForm from "../affirmations/AffirmationForm";
+
+import AffirmationContainer from "../affirmations/AffirmationContainer";
 
 const Affirmations = () => {
   return (
     <Fragment>
-      {/* <AffirmationContainer /> */}
+      <AffirmationContainer  />
       <AffirmationForm />
-      {/* <AffirmationItem /> */}
+    
     </Fragment>
   );
 };

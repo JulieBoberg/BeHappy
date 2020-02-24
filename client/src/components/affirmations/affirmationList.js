@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import AffirmationContext from "../../context/affirmations/affirmationsContext";
 
-const affirmationList = ({ affirmation }) => {
+const AffirmationList = ({ affirmation }) => {
+  const affirmationContext = useContext(AffirmationContext);
   const { id, affirm } = affirmation;
 
   return (
@@ -30,4 +32,4 @@ const affirmationList = ({ affirmation }) => {
   );
 };
 
-export default affirmationList;
+export default AffirmationList;
