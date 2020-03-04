@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
 
-const GratitudeSchema = mongoose.Schema({
+const AffirmationSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users"
-  }, 
-  item: {
+  },
+
+  affirm: {
     type: String,
     required: true
-  },
-  category: {
-    type: String
   },
 
   date: {
@@ -19,4 +17,4 @@ const GratitudeSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("gratitude", GratitudeSchema);
+module.exports = mongoose.model("affirmation", AffirmationSchema);

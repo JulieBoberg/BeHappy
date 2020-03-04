@@ -12,16 +12,20 @@ const AffirmationList = ({ affirmation }) => {
           <p style={{ fontSize: "24px" }}>{affirm}</p>
         </div>
 
-        {/* <span>
+        {/* Considering moving this. 
+        <span>
           <a
             className='waves-effect waves-yellow lighten-3 btn-flat'
-            onClick={() => setCurrent(gratitude)}
+            // onClick={() => setCurrent(affirmation)}
           >
             <i className='material-icons'>create</i>
           </a>
-        </span> */}
-        {/* <span>
-          <a className='waves-effect waves-red btn-flat' onClick={onDelete}>
+        </span>
+        <span>
+          <a
+            className='waves-effect waves-red btn-flat'
+            // onClick={onDelete}
+          >
             <i className='material-icons'>delete_outline</i>
           </a>
         </span> */}

@@ -14,6 +14,7 @@ app.get("/", (req, res) => res.json({ msg: "Welcome to the Happiness App" }));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/gratitude", require("./routes/gratitude"));
+app.use("/api/affirmation", require("./routes/affirmation"));
 
 const PORT = process.env.PORT || 5000;
 

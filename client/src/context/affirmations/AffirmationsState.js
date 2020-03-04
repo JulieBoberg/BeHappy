@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import uuid from "uuid";
 import affirmationsReducer from "./affirmationsReducer";
 import AffirmationsContext from "./affirmationsContext";
 

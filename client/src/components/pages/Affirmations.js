@@ -8,7 +8,6 @@ const Affirmations = () => {
     <Fragment>
       <AffirmationContainer  />
       <AffirmationForm />
-    
     </Fragment>
   );
 };

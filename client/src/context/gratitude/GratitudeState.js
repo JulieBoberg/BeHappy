@@ -13,7 +13,7 @@ import {
   GRAT_ERROR
 } from "../types";
 
-const GratitudeState = props => {
+const GratitudeState = props => { 
   const initialState = {
     gratitudes: [],
     current: null,
