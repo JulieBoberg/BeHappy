@@ -1,9 +1,11 @@
 import React, { Fragment, useContext } from "react";
 import AffirmationContext from "../../context/affirmations/affirmationsContext";
+import PropTypes from "prop-types";
 
 const AffirmationList = ({ affirmation }) => {
   const affirmationContext = useContext(AffirmationContext);
-  const { id, affirm } = affirmation;
+
+  const { _id, affirm } = affirmation;
 
   return (
     <Fragment>
@@ -11,29 +13,13 @@ const AffirmationList = ({ affirmation }) => {
         <div className='row'>
           <p style={{ fontSize: "24px" }}>{affirm}</p>
         </div>
-
-        {/* Considering moving this. 
-        <span>
-          <a
-            className='waves-effect waves-yellow lighten-3 btn-flat'
-            // onClick={() => setCurrent(affirmation)}
-          >
-            <i className='material-icons'>create</i>
-          </a>
-        </span>
-        <span>
-          <a
-            className='waves-effect waves-red btn-flat'
-            // onClick={onDelete}
-          >
-            <i className='material-icons'>delete_outline</i>
-          </a>
-        </span> */}
-
-        {/* <Moment format='MMMM Do YYYY, h:mm:ss a'>{grat.date}</Moment> */}
       </li>
     </Fragment>
   );
+};
+
+AffirmationContext.propTypes = {
+  affirmation: PropTypes.object.isRequired
 };
 
 export default AffirmationList;
