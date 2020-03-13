@@ -5,9 +5,14 @@ You can also edit and delete each item as needed.
 
 ![Gratitude log preview image](https://github.com/JulieBoberg/BeHappy/blob/master/images/gratitudeLog.png)
 
-## Coming soon:
+## Coming soon
 The app will also have a space to add and review affirmations, and a daily mood tracker. Coming soon!
 
+![Preview of affirmations section](https://github.com/JulieBoberg/BeHappy/blob/master/images/affirmations.png)
+Add affirmations and review them whenever you need a boost.
+
+![Preview of affirmations section](https://github.com/JulieBoberg/BeHappy/blob/master/images/mood.png)
+Check in with your mood. 
 
 ## Usage
 Install dependencies
