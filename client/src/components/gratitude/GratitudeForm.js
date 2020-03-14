@@ -21,6 +21,8 @@ const GratitudeForm = () => {
         item: "",
         category: ""
       });
+      // Initializes dropdown menu
+      M.AutoInit();
     }
   }, [gratitudeContext, current]);
 
@@ -83,7 +85,7 @@ const GratitudeForm = () => {
             </div>
 
             {/* Drop down menu */}
-            <div className='input-field col s12 m8 l4'>
+            <div className='input-field col s12 m8 l4 '>
               <i className='material-icons prefix'>label</i>
               <select
                 type='text'

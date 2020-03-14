@@ -40,3 +40,9 @@
 .input-field .prefix.active {
   color: #e57373;
 }
+
+/* Dropdown menu font color */
+
+ul.dropdown-content.select-dropdown li span {
+  color: #494949; /* no need for !important :) */
+}
