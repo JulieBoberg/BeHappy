@@ -6,9 +6,7 @@ import { ADD_AFFIRMATION, GET_AFFIRMATION, AF_ERROR } from "../types";
 
 const AffirmationsState = props => {
   const initialState = {
-    affirmations: [
-  
-    ],
+    affirmations: [],
     current: null
   };
 

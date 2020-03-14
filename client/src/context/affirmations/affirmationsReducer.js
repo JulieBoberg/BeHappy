@@ -1,12 +1,12 @@
 import {
   ADD_AFFIRMATION,
-  DELETE_AFFIRMATION,
   GET_AFFIRMATION,
-  SET_CURRENT,
-  CLEAR_CURRENT,
-  UPDATE_AFFIRMATION,
-  AF_ERROR,
-  CLEAR_AFFIRMATION
+  AF_ERROR
+  // DELETE_AFFIRMATION,
+  // SET_CURRENT,
+  // CLEAR_CURRENT,
+  // UPDATE_AFFIRMATION,
+  // CLEAR_AFFIRMATION
 } from "../types";
 
 export default (state, action) => {
@@ -21,7 +21,7 @@ export default (state, action) => {
         ...state,
         affirmations: [action.payload, ...state.affirmations]
       };
-      case AF_ERROR:
+    case AF_ERROR:
       return {
         ...state,
         error: action.payload
@@ -30,14 +30,14 @@ export default (state, action) => {
     // case DELETE_AFFIRMATION:
     //   return {
     //     ...state,
-    //     gratitudes: state.gratitudes.filter(
+    //     affiramtions: state.affiramtions.filter(
     //       gratitude => gratitude._id !== action.payload
     //     )
     //   };
     // case GET_AFFIRMATION:
     //   return {
     //     ...state,
-    //     gratitudes: action.payload
+    //     affiramtions: action.payload
     //   };
     // case SET_CURRENT:
     //   return {
@@ -54,15 +54,15 @@ export default (state, action) => {
     // case UPDATE_AFFIRMATION:
     //   return {
     //     ...state,
-    //     gratitudes: state.gratitudes.map(gratitude =>
-    //       gratitude._id === action.payload._id ? action.payload : gratitude
+    //     affirmations: state.affirmations.map(affirmation =>
+    //       affirmation._id === action.payload._id ? action.payload : affirmation
     //     )
     //   };
-    
+
     // case CLEAR_AFFIRMATION:
     //   return {
     //     ...state,
-    //     gratitudes: [],
+    //     affirmations: [],
     //     error: null,
     //     current: null
     //   };

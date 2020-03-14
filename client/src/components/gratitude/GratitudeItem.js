@@ -8,7 +8,7 @@ const GratitudeItem = ({ gratitude }) => {
   const gratitudeContext = useContext(GratitudeContext);
   const { deleteGratitude, setCurrent, clearCurrent } = gratitudeContext;
 
-  const { _id, item, category, date } = gratitude;
+  const { _id, item, category } = gratitude;
 
   const onDelete = () => {
     deleteGratitude(_id);
@@ -31,12 +31,17 @@ const GratitudeItem = ({ gratitude }) => {
           <a
             className='waves-effect waves-yellow lighten-3 btn-flat'
             onClick={() => setCurrent(gratitude)}
+            href='/#'
           >
             <i className='material-icons'>create</i>
           </a>
         </span>
         <span>
-          <a className='waves-effect waves-red btn-flat' onClick={onDelete}>
+          <a
+            className='waves-effect waves-red btn-flat'
+            onClick={onDelete}
+            href='/#'
+          >
             <i className='material-icons'>delete_outline</i>
           </a>
         </span>

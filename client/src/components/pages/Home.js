@@ -20,7 +20,7 @@ const Home = () => {
         <h1>Hello {user && user.name}!</h1>
         <h2>How do you feel right now?</h2>
         <div className='row'>
-          <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
+          {/* <a className='btn-floating btn-large waves-effect waves-light red moodButton'>
             <i
               className='material-icons moodIcons'
               style={{ fontSize: "48px" }}
@@ -42,7 +42,7 @@ const Home = () => {
             <i className='material-icons moodIcons'>
               sentiment_very_dissatisfied
             </i>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

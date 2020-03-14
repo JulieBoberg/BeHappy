@@ -36,7 +36,7 @@ const GratitudeForm = () => {
     var elems = document.querySelectorAll(
       "input#input_text, textarea#icon_prefix2"
     );
-    var instances = M.CharacterCounter.init(elems);
+    M.CharacterCounter.init(elems);
   });
 
   // OnChange works and changes state

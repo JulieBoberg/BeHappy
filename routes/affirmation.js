@@ -5,15 +5,30 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/Users");
 const Affirmation = require("../models/Affirmation");
 
+// router.get("/", auth, async (req, res) => {
+//   try {
+//     const affirmation = await Affirmation.findOne({ user: req.user.id });
+//     // .sort({
+//     //   date: -1
+//     // });
+//     res.json(affirmation);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send("Server Error");
+//   }
+// });
+
 // @route GET api/affirmation
 // @desc Get all affirmations
 //@access Private
 
 router.get("/", auth, async (req, res) => {
   try {
-    const affirmation = await Affirmation.find({ user: req.user.id }).sort({
-      date: -1
-    });
+    var n = 1;
+    const affirmation = await Affirmation.find(
+      { user: req.user.id },
+      { affirm: 1, _id: 0 }
+    );
     res.json(affirmation);
   } catch (err) {
     console.error(err.message);

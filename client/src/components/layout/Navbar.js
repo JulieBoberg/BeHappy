@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 const Navbar = ({ title, icon }) => {
   document.addEventListener("DOMContentLoaded", function() {
     var elems = document.querySelectorAll(".sidenav");
-    var instances = M.Sidenav.init(elems);
+    M.Sidenav.init(elems);
   });
 
   const authContext = useContext(AuthContext);
@@ -36,13 +36,13 @@ const Navbar = ({ title, icon }) => {
       <li>
         <Link to='/'>Home</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to='/Gratitude'>Gratitude</Link>
       </li>
 
       <li>
         <Link to='/Affirmations'>Affirmations</Link>
-      </li>
+      </li> */}
 
       <li>
         <a onClick={onLogout} href='#!'>

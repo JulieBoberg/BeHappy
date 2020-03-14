@@ -1,11 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, Fragment } from "react";
 import AffirmationContext from "../../context/affirmations/affirmationsContext";
+import M from "materialize-css/dist/js/materialize.min.js";
+
 import "materialize-css/dist/css/materialize.min.css";
 
 const AffirmationForm = () => {
   const affirmationContext = useContext(AffirmationContext);
 
   const { addAffirmation, current } = affirmationContext;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var elems = document.querySelectorAll(
+      "input#input_text, textarea#icon_prefix2"
+    );
+    M.CharacterCounter.init(elems);
+  });
 
   const onChange = e =>
     setAffirmation({ ...affirmation, [e.target.name]: e.target.value });
@@ -24,34 +33,46 @@ const AffirmationForm = () => {
   const { affirm } = affirmation;
 
   return (
-    <div className='row container' style={{ overflow: "visible" }}>
-      <form className='col s12' onSubmit={onSubmit}>
+    <Fragment>
+      {/* break point between inputs */}
+      <div className='container' style={{ paddingTop: "3%" }}>
         <div className='row'>
-          {/* Affirmation input*/}
-          <div className='input-field col s12'>
-            <i className='material-icons prefix'>favorite_border</i>
-            <input
-              type='text'
-              name='affirm'
-              value={affirm}
-              onChange={onChange}
-              id='icon_prefix2'
-              className='materialize-textarea'
-              data-length='120'
-            ></input>
-            <label htmlFor='icon_prefix2'>Wonderful words...</label>
-          </div>
-        </div>
+          <form className='col s12' onSubmit={onSubmit}>
+            <div className='row'>
+              <div className='input-field col s11'>
+                <i className='material-icons prefix '>favorite_border</i>
+                <input
+                  type='text'
+                  name='affirm'
+                  value={affirm}
+                  onChange={onChange}
+                  id='input_text'
+                  className='materialize-textarea '
+                  data-length='100'
+                  style={{
+                    borderBottom: "1px solid #e57373",
+                    boxShadow: "0 1px 0 0 #e57373"
+                  }}
+                ></input>
+                <label htmlfor='affirm' style={{ color: "#e57373" }}>
+                  affirm
+                </label>
+              </div>
 
-        <button
-          className='btn-floating btn-large waves-effect waves-light red'
-          type='submit'
-          value='Add Affirmation'
-        >
-          <i className='material-icons right'>add</i>
-        </button>
-      </form>
-    </div>
+              <div className='input-field col s1'>
+                <button
+                  className='btn waves-effect waves-light red lighten-2'
+                  type='submit'
+                  affirm='action'
+                >
+                  Go!
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 
