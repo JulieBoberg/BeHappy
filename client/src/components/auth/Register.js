@@ -55,7 +55,6 @@ const Register = props => {
         {/* name */}
         <div className='input-field col s6'>
           <input
-            placeholder='Placeholder'
             id='name'
             type='text'
             name='name'
@@ -108,7 +107,7 @@ const Register = props => {
         <input
           type='submit'
           value='register'
-          className='btn waves-effect waves-light'
+          className='btn waves-effect waves-light red lighten-2'
         />
       </div>
     </form>

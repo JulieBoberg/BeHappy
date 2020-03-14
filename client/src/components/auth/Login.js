@@ -52,11 +52,15 @@ const Login = props => {
         <div className='row'>
           <div className='input-field col s12'>
             <input
-              id='email'
+              id='input-field'
               type='email'
               value={email}
               name='email'
               onChange={onChange}
+              style={{
+                borderBottom: "1px solid #e57373",
+                boxShadow: "0 1px 0 0 #e57373"
+              }}
             />
             <label htmlFor='email'>Email</label>
           </div>
@@ -65,11 +69,15 @@ const Login = props => {
         <div className='row'>
           <div className='input-field col s12'>
             <input
-              id='password'
+              id='input-field'
               type='password'
               value={password}
               name='password'
               onChange={onChange}
+              style={{
+                borderBottom: "1px solid #e57373",
+                boxShadow: "0 1px 0 0 #e57373"
+              }}
             />
             <label htmlFor='password'>Password</label>
           </div>
@@ -78,7 +86,7 @@ const Login = props => {
         <input
           type='submit'
           value='login'
-          className='btn waves-effect waves-light'
+          className='btn waves-effect waves-light red lighten-2'
         />
       </div>
     </form>

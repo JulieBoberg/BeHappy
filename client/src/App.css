@@ -15,16 +15,16 @@
 
 /* label color */
 .input-field label {
-  color: #e57373;
+  color: #494949;
 }
 /* label focus color */
-.input-field input[type="text"]:focus + label {
-  color: #e57373;
+.input-field input:focus + label {
+  color: #e57373 !important;
 }
 /* label underline focus color */
-.input-field input[type="text"]:focus {
-  border-bottom: 1px solid #e57373;
-  box-shadow: 0 1px 0 0 #e57373;
+.input-field input:focus {
+  border-bottom: 1px solid #e57373 !important;
+  box-shadow: 0 1px 0 0 #e57373 !important;
 }
 /* valid color */
 .input-field input[type="text"].valid {
