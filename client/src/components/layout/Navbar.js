@@ -39,10 +39,11 @@ const Navbar = ({ title, icon }) => {
       {/* <li>
         <Link to='/Gratitude'>Gratitude</Link>
       </li>
+      */}
 
       <li>
         <Link to='/Affirmations'>Affirmations</Link>
-      </li> */}
+      </li>
 
       <li>
         <a onClick={onLogout} href='#!'>

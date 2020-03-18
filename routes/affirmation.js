@@ -26,8 +26,8 @@ router.get("/", auth, async (req, res) => {
   try {
     var n = 1;
     const affirmation = await Affirmation.find(
-      { user: req.user.id },
-      { affirm: 1, _id: 0 }
+      { user: req.user.id }
+      // { affirm: 1, _id: 1 }
     );
     res.json(affirmation);
   } catch (err) {

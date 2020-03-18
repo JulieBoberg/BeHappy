@@ -2,7 +2,15 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import affirmationsReducer from "./affirmationsReducer";
 import AffirmationsContext from "./affirmationsContext";
-import { ADD_AFFIRMATION, GET_AFFIRMATION, AF_ERROR } from "../types";
+import {
+  ADD_AFFIRMATION,
+  GET_AFFIRMATION,
+  AF_ERROR,
+  DELETE_AFFIRMATION,
+  UPDATE_AFFIRMATION,
+  SET_CURRENT,
+  CLEAR_CURRENT
+} from "../types";
 
 const AffirmationsState = props => {
   const initialState = {
@@ -50,12 +58,60 @@ const AffirmationsState = props => {
   };
 
   // Delete Affirmations
+  const deleteAffirmation = async id => {
+    try {
+      await axios.delete(`/api/affirmation/${id}`);
+      dispatch({
+        type: DELETE_AFFIRMATION,
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: AF_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
 
   // Edit Affirmations
+  const updateAffirmation = async affirmation => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.put(
+        `/api/affirmation/${affirmation._id}`,
+        affirmation,
+        config
+      );
+      dispatch({
+        type: UPDATE_AFFIRMATION,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: AF_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
 
   // Set Current
+  const setCurrent = affirmation => {
+    dispatch({
+      type: SET_CURRENT,
+      payload: affirmation
+    });
+  };
 
   // Clear Current
+  const clearCurrent = () => {
+    dispatch({
+      type: CLEAR_CURRENT
+    });
+  };
 
   return (
     <AffirmationsContext.Provider
@@ -64,10 +120,9 @@ const AffirmationsState = props => {
         current: state.current,
         error: state.error,
         addAffirmation,
-        // deleteAffirmation,
-        // updateAffirmation,
+        deleteAffirmation,
+        updateAffirmation,
         getAffirmation
-        // clearAffirmation
       }}
     >
       {props.children}
