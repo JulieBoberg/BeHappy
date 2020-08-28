@@ -29,7 +29,7 @@ const GratitudeItem = ({ gratitude }) => {
 
         <span>
           <a
-            className='waves-effect waves-yellow lighten-3 btn-flat'
+            className='waves-effect lighten-3 btn-flat'
             onClick={() => setCurrent(gratitude)}
             href='/#'
           >
@@ -53,7 +53,7 @@ const GratitudeItem = ({ gratitude }) => {
 };
 
 GratitudeItem.propTypes = {
-  gratitude: PropTypes.object.isRequired
+  gratitude: PropTypes.object.isRequired,
 };
 
 export default GratitudeItem;
